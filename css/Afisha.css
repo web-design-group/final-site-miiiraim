@@ -1,0 +1,1149 @@
+html, body {
+  height: 100%;
+  margin: 0px;
+  scroll-behavior: smooth; 
+  zoom: 100%;
+}
+
+@font-face {
+  font-family: "NAURYZREDKEDS";
+  font-weight: 400;
+  font-style: bold;
+  src: local("NAURYZREDKEDS"),
+  local("NAURYZREDKEDS");
+  src: url("/fonts/NauryzRedKeds/NauryzRedKeds.ttf") format("ttf"),
+  url("/fonts/NauryzRedKeds/NauryzRedKeds.woff") format("woff"),
+  url("/fonts/NauryzRedKeds/NauryzRedKeds.woff2") format("woff2");
+
+}
+@font-face {
+  font-family: "CaviarDreams";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/CaviarDreams/CaviarDreams.ttf") format("ttf"),
+  url("/fonts/CaviarDreams/CaviarDreams.woff") format("woff"),
+  url("/fonts/CaviarDreams/CaviarDreams.woff2") format("woff2");
+}
+@font-face {
+  font-family: "CaviarDreams_Bold";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/CaviarDreams/CaviarDreams_Bold.ttf") format("ttf"),
+  url("/fonts/CaviarDreams/CaviarDreams_Bold.woff") format("woff"),
+  url("/fonts/CaviarDreams/CaviarDreams_Bold.woff2") format("woff2");
+}
+
+:root {
+  --bg: white:var(--bg);
+  --text: black;
+  --headers: white;
+  --accent-color:#C48000;
+  --accent-color2: #996708;
+  --shadow: 0 4px 4px rgba(0, 0, 0, 25%);
+}
+
+body {
+  margin: 0;
+  font-family: "CaviarDreams";
+  font-family: "NAURYZREDKEDS";
+  font-weight: 400;
+  color: var(--bg);
+  line-height: 1.2;
+}
+
+.container {
+  margin: 0 auto;
+  width: min(1360px);
+}
+
+.header {
+      background-color: #EBEBEB;
+      width: 100%;  
+      height: 120px;
+}
+
+.nav {
+      width: 1360px;  
+      height: 120px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+}
+
+.logo {
+    display: inline-block;
+    position: relative;
+    line-height: 0;
+}
+
+.logo:hover {
+    content: url("/img/all/logohover.png");
+}
+
+.logo:active {
+    content: url("/img/all/logopress.png");
+}
+
+.cont-header {
+      width: 1015px;  
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+}
+.cont-header a {
+  text-decoration: none;
+  color: black; 
+  font-family: "CaviarDreams";
+  font-size: 24px;
+  font-weight: normal;
+}
+.cont-header a:hover {
+  color: var(--accent-color);
+  text-decoration:underline;
+  text-decoration-color: var(--accent-color);
+}
+
+.cont-header a:active{
+  color: var(--accent-color);
+  text-decoration:none;
+  font-weight: bold;
+}
+
+
+.hero {
+   
+    display: grid;
+    grid-template-rows: 115px 50px;
+    gap: 42px;
+    width: 900px;
+    height: 205px;
+    margin: 288px auto 78px;
+}
+
+h1 {
+  color: black;
+  font-family: "NAURYZREDKEDS";
+  font-size: 105px;
+  font-weight: bold; 
+  text-align: center;
+  margin: 0;
+}
+
+h2 {
+  color: black;
+  font-family: "NAURYZREDKEDS";
+  font-size: 70px;
+  font-weight: bold; 
+  text-align: center;
+  margin: 0;
+}
+
+p {
+    font-family: "CaviarDreams";
+    font-size: 24px;
+    font-weight: normal;
+    text-align: justify;
+    margin: 0;
+}
+
+.hero a {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #9fc2e6;
+    border: 4px solid #9fc2e6 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.culcher a {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #9fc2e6;
+    border: 4px solid #9fc2e6 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.fest a {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #9fc2e6;
+    border: 4px solid #9fc2e6 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+
+.fest a:hover {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #5f8bb7;
+    border: 4px solid #5f8bb7 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.fest a:active {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #5f8bb7;
+    border: 4px solid #9fc2e6 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.culcher a:hover {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #5f8bb7;
+    border: 4px solid #5f8bb7 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.culcher a:active {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #5f8bb7;
+    border: 4px solid #9fc2e6 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.hero a:hover {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #5f8bb7;
+    border: 4px solid #5f8bb7 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.hero a:active {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #5f8bb7;
+    border: 4px solid #9fc2e6 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.tursgr a {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #9fc2e6;
+    border: 4px solid #9fc2e6 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+
+.tursgr a:hover {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #5f8bb7;
+    border: 4px solid #5f8bb7 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.tursgr a:active {
+    height: auto;
+    width: auto;
+    padding: 12px 22px;
+    background-color: #5f8bb7;
+    border: 4px solid #9fc2e6 ;
+   font-family: "CaviarDreams_bold";
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.tursgr {
+    height: 170px;
+    width: 440px;
+    margin: 160px auto 80px;
+    display: grid;
+    grid-template-rows: 75px 50px;
+    row-gap: 40px;
+}
+
+.buttonsrow {
+    display: flex;
+      width: auto;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+}
+
+
+.item2{ 
+    align-self: center;
+}
+
+.title {
+    height: 75px;
+    width: 100%;
+    background-color: #287E7C; 
+}
+
+h5 {
+      color: white; 
+   font-family: "CaviarDreams_Bold";
+   font-size: 36px;
+   font-weight: bold;
+   margin: 0;
+}
+
+.item1{ 
+    align-self: center;
+}
+
+.fest {
+    width: 1360px;
+    height: 730px;
+    margin: 240px auto 80px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.but {
+    height: 50px;
+    width: 210px;
+    margin: 80px auto 80px;
+}
+
+.btn-record {
+    position: relative;
+    display: inline-block;
+    font-family: "CaviarDreams_Bold", sans-serif;
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
+    padding: 15px 60px;
+    line-height: 1;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btn-record__slide {
+    position: absolute;
+    top: -20%;
+    left: -50%;
+    width: 90%;
+    height: 140%;
+    background-color: #C48000;
+    transform: skewX(-30deg) translateX(-150%);
+    transition: transform 0.4s ease;
+    z-index: 0;
+}
+
+/* --- Текст --- */
+.btn-record__text {
+    position: relative;
+    z-index: 1;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+/* --- При наведении --- */
+.btn-record:hover .btn-record__slide {
+    transform: skewX(-30deg) translateX(-20%);
+}
+
+.btn-record:hover .btn-record__text {
+    color: black;
+}
+
+/* --- При нажатии --- */
+.btn-record:active .btn-record__slide {
+    transform: skewX(-30deg) translateX(80%);
+    transition: transform 0.3s ease;
+}
+
+.btn-record:active .btn-record__text {
+    color: white;
+}
+
+.btn-record:active {
+    background-color: #C48000;
+    border-color: #C48000;
+    transition: background-color 0s 0.2s, border-color 0s 0.3s;
+}
+
+.t1 {
+    width: 1360px;
+    height: 75px;
+    margin: 0 auto 0;
+    display: flex;
+    align-items: center;
+}
+
+
+.scroll-container {
+    width: 100%;
+    height: 650px;
+    background-color: #d9d9d9;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .scroll-item {
+    width: 285px;
+    height: 530px;
+    background-color: white;
+    padding: 35px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .scroll-item p{
+    width: 250px;
+    height: auto;
+    text-align: justify;
+    white-space: wrap; 
+  }
+  
+  h6 {
+    margin: 0;
+    font-family: "NAURYZREDKEDS";
+    font-size: 40px;
+    font-style: bold;
+    text-align: center;
+    white-space: wrap; 
+  }
+
+  .flex-scroll {
+    width: 2740px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.non {
+    height: 80px;
+    width: 100%;
+}
+
+.rewievsize {
+     width: 1920px;
+    height: 845px;
+    margin: 0 auto; 
+    position: relative
+}
+
+.rewiev {
+    width: 1130px;
+    height: 525px;
+    margin: 160px auto;
+        left: 50%; 
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
+    position: absolute;
+}
+
+.arrows {
+    width: 1845px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    z-index: 1;
+}
+
+h3 {
+   font-family: "CaviarDreams_bold";
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: black; 
+    margin: 0; 
+}
+
+.wave {
+  background-image: url(/img/all/wave.png);
+  background-repeat: repeat-x; 
+  background-position: left;
+  background-size: contain;
+  width: 100%;
+  height: 80px;
+  margin: 0;
+}
+
+.mus {
+height: 800px;
+width: 1360px;
+margin: 160px auto 80px;
+}
+
+.turs {
+    height: 1990px;
+}
+
+.fest-back {
+width: 100%;
+height: 1238px;
+padding: 1px 1px;
+  background-image: url(/img/all/waveback.png);
+  background-repeat: repeat-x; 
+  background-position: top left;
+  background-size: auto;
+}
+
+.culcher {
+    width: 1360px;
+    height: 890px;
+    margin: 120px auto 80px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.border {
+    height: 1px;
+    width: 100%;
+}
+
+
+
+
+.footer {
+    width: 100%;
+    height: 340px;
+    background-color: #287E7C;
+    margin: 0;
+    position: absolute;
+    left: 50%; 
+    transform: translate(-50%);
+}
+
+.f-container {
+  width: 1360px;
+  height: auto;
+  margin: 85px auto 115px;
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-footer {
+  width: 1245px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+}
+
+.contacts {
+  width: 1245px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.phone {
+  width: 270px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mail {
+  width: 230px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mp {
+  width: 680px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.social {
+  width: 95px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contacts {
+  width: 900px;
+  height: 40px;
+  padding: 20px 115px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.all {
+  width: 1245px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.a-footer {
+  width: 1240px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+.a-footer a {
+  color: white; 
+  font-family: "CaviarDreams";
+  font-size: 24px;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.a-footer a:hover {
+  color: white; 
+  font-family: "CaviarDreams";
+  font-size: 24px;
+  font-weight: normal;
+  text-decoration:underline;
+  text-decoration-color: white;
+}
+
+.a-footer a:active {
+  color: white; 
+  font-family: "CaviarDreams";
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration:underline;
+  text-decoration-color: white;
+}
+
+h4 {
+    color: white; 
+   font-family: "CaviarDreams_Bold";
+   font-size: 28px;
+   font-weight: bold;
+   margin: 0;
+}
+.p-footer {
+  color: white;
+  width: auto;
+  height: auto;
+  font-family: "CaviarDreams";
+  font-size: 24px;
+  font-weight: normal;
+  text-align: left;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+.image-slider-h {
+    width: 1133px;
+    height: 500px;
+    margin: 0 auto;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+}
+
+.image-slider-h__wrapper {
+    position: relative;
+    width: 1133px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-slider-h__img {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.image-slider-h__img--left {
+    width: 400px;
+    height: 400px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.65;
+    z-index: 1;
+}
+
+.image-slider-h__img--center {
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    z-index: 2;
+}
+
+.image-slider-h__img--right {
+    width: 400px;
+    height: 400px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.65;
+    z-index: 1;
+}
+
+
+
+.fest__links {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    width: 1160px;
+    flex-wrap: nowrap;
+    padding: 150px 100px;
+}
+
+.circle-link {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    display: block;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.circle-link__svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    height: 340px;
+    z-index: 2;
+    pointer-events: none;
+    transition: transform 0.4s ease;
+}
+
+.circle-link:hover .circle-link__svg {
+    transform: translate(-50%, -50%) rotate(-30deg);
+}
+
+.circle-link__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.fest-btn {
+  height: 330px;
+  width: 1369px;
+  margin-bottom: 40px;
+}
+
+
+
+
+.museums-wrapper {
+    position: relative;
+    width: 750px;
+    height: 750px;
+    margin: 0 auto;
+    transition: width 0.5s ease;
+    overflow: visible;
+}
+
+.museums-wrapper.expanded {
+    width: 1400px;
+}
+
+.museums-inner {
+    position: relative;
+    width: 750px;
+    height: 750px;
+    display: flex;
+    align-items: center;
+    transition: width 0.5s ease;
+}
+
+.museums-wrapper.expanded .museums-inner {
+    width: 1400px;
+}
+
+.museums-circle {
+    position: relative;
+    width: 750px;
+    height: 750px;
+    flex-shrink: 0;
+}
+
+.museums-circle__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 617px;
+    height: 617px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+    transition: left 0.5s ease, top 0.5s ease, transform 0.5s ease;
+}
+
+.museums-wrapper.expanded .museums-circle__center {
+    left: 56px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.museums-circle__center img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.museums-circle__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    color: white;
+    font-family: "NAURYZREDKEDS", sans-serif;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    line-height: 1.1;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    white-space: nowrap;
+}
+
+.museums-wrapper.expanded .museums-circle__title {
+    opacity: 0;
+}
+
+.museums-expanded-title {
+    display: none;
+    position: absolute;
+    top: -110px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    font-family: "NAURYZREDKEDS", sans-serif;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 6;
+    white-space: nowrap;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0;
+}
+
+.museums-wrapper.expanded .museums-expanded-title {
+    display: block;
+}
+
+.museums-circle__pin {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+}
+
+.museums-circle__pin--1 {
+    transform: translate(-50%, -50%) rotate(170deg) translateY(-308px) rotate(-170deg);
+}
+
+.museums-circle__pin--2 {
+    transform: translate(-50%, -50%) rotate(150deg) translateY(-308px) rotate(-150deg);
+}
+
+.museums-circle__pin--3 {
+    transform: translate(-50%, -50%) rotate(130deg) translateY(-308px) rotate(-130deg);
+}
+
+.museums-circle__pin--4 {
+    transform: translate(-50%, -50%) rotate(110deg) translateY(-308px) rotate(-110deg);
+}
+
+.museums-circle__pin--5 {
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-308px) rotate(-90deg);
+}
+
+.museums-circle__pin--1:hover {
+    transform: translate(-50%, -50%) rotate(170deg) translateY(-308px) rotate(-170deg) scale(1.15);
+}
+
+.museums-circle__pin--2:hover {
+    transform: translate(-50%, -50%) rotate(150deg) translateY(-308px) rotate(-150deg) scale(1.15);
+}
+
+.museums-circle__pin--3:hover {
+    transform: translate(-50%, -50%) rotate(130deg) translateY(-308px) rotate(-130deg) scale(1.15);
+}
+
+.museums-circle__pin--4:hover {
+    transform: translate(-50%, -50%) rotate(110deg) translateY(-308px) rotate(-110deg) scale(1.15);
+}
+
+.museums-circle__pin--5:hover {
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-308px) rotate(-90deg) scale(1.15);
+}
+
+.museums-text {
+    width: 0;
+    padding-left: 0;
+    padding-top: 0;
+    flex-shrink: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: width 0.5s ease, opacity 0.3s ease 0.3s, padding 0.5s ease;
+    align-self: center;
+}
+
+.museums-wrapper.expanded .museums-text {
+    width: 650px;
+    padding-left: 40px;
+    opacity: 1;
+}
+
+.museums-text h3 {
+    color: black;
+    font-family: "CaviarDreams_Bold", sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    margin: 0 0 24px 0;
+    text-align: left;
+}
+
+.museums-text p {
+    width: 610px;
+    color: black;
+    font-family: "CaviarDreams", sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: justify;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.museums-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease 0.3s;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+    color: #333;
+}
+
+.museums-wrapper.expanded .museums-close {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+
+
+
+
+
+
+.scroll-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-item__wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/img/afisha/wavemore.png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.scroll-item:hover .scroll-item__wave {
+    transform: translateY(0);
+}
+
+.scroll-item__btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    padding: 6px 50px;
+    border: 4px solid #ffffff;
+    text-decoration: none;
+    color: black;
+    font-family: "CaviarDreams_Bold", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.scroll-item:hover .scroll-item__btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-item__btn:hover {
+    border: 4px solid #C48000;
+    color: white;
+    background-color: #C48000;
+}
+
+.scroll-item__btn:active {
+    border: 4px solid #C48000;
+    color: white;
+    background-color: #A66D00;
+}
