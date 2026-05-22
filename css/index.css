@@ -6,8 +6,7 @@ html, body {
   font-family: "NAURYZREDKEDS";
   font-weight: 400;
   font-style: bold;
-  src: local("NAURYZREDKEDS"),
-  local("NAURYZREDKEDS");
+  src: local("NAURYZREDKEDS");
     src: url("fonts/NauryzRedKeds/NauryzRedKeds.ttf") format("truetype"),
   url("fonts/NauryzRedKeds/NauryzRedKeds.woff") format("woff"),
   url("fonts/NauryzRedKeds/NauryzRedKeds.woff2") format("woff2");
@@ -22,7 +21,7 @@ html, body {
 }
 @font-face {
   font-family: "CaviarDreams_Bold";
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   src: url("fonts/CaviarDreams/CaviarDreams_Bold.ttf") format("truetype"),
   url("fonts/CaviarDreams/CaviarDreams_Bold.woff") format("woff"),
