@@ -5,27 +5,30 @@ html, body {
 @font-face {
   font-family: "NAURYZREDKEDS";
   font-weight: 400;
-  font-style: bold;
-  src: local("NAURYZREDKEDS");
-    src: url("fonts/NauryzRedKeds/NauryzRedKeds.ttf") format("truetype"),
-  url("fonts/NauryzRedKeds/NauryzRedKeds.woff") format("woff"),
-  url("fonts/NauryzRedKeds/NauryzRedKeds.woff2") format("woff2");
+  font-style: normal;  /* bold - невалидное значение */
+  src: local("NAURYZREDKEDS"),
+       local("NAURYZREDKEDS");  /* дублирование local не нужно */
+  src: url("fonts/NauryzRedKeds/NauryzRedKeds.woff2") format("woff2"),
+       url("fonts/NauryzRedKeds/NauryzRedKeds.woff") format("woff"),
+       url("fonts/NauryzRedKeds/NauryzRedKeds.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "CaviarDreams";
   font-weight: 400;
   font-style: normal;
-  src: url("fonts/CaviarDreams/CaviarDreams.ttf") format("truetype"),
-  url("fonts/CaviarDreams/CaviarDreams.woff") format("woff"),
-  url("fonts/CaviarDreams/CaviarDreams.woff2") format("woff2");
+  src: url("fonts/CaviarDreams/CaviarDreams.woff2") format("woff2"),
+       url("fonts/CaviarDreams/CaviarDreams.woff") format("woff"),
+       url("fonts/CaviarDreams/CaviarDreams.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "CaviarDreams_Bold";
-  font-weight: 700;
+  font-family: "CaviarDreams";
+  font-weight: 700;  /* bold обычно соответствует 700 */
   font-style: normal;
-  src: url("fonts/CaviarDreams/CaviarDreams_Bold.ttf") format("truetype"),
-  url("fonts/CaviarDreams/CaviarDreams_Bold.woff") format("woff"),
-  url("fonts/CaviarDreams/CaviarDreams_Bold.woff2") format("woff2");
+  src: url("fonts/CaviarDreams/CaviarDreams_Bold.woff2") format("woff2"),
+       url("fonts/CaviarDreams/CaviarDreams_Bold.woff") format("woff"),
+       url("fonts/CaviarDreams/CaviarDreams_Bold.ttf") format("truetype");
 }
 
 :root {
