@@ -134,16 +134,17 @@ h1 {
   color: white;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 105px;
-  font-weight: bold;
+  font-weight: normal;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0;
+  text-align: cener;
 }
 
 .center {
   width: auto;
   height: 750px;
   display: grid;
-  grid-template-columns: auto 515px auto;
+  grid-template-columns: auto 530px auto;
   grid-template-rows: 290px 115px auto;
   grid-template-areas:
   ". . ."
@@ -159,7 +160,7 @@ h2 {
   color: black;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 105px;
-  font-weight: bold;
+  font-weight: normal;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0;
 }
@@ -229,7 +230,7 @@ h3 {
   color: black;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 70px;
-  font-weight: bold;
+  font-weight: normal;
   margin: 0;
 }
 
@@ -237,7 +238,7 @@ h3 {
   color: black;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 70px;
-  font-weight: bold;
+  font-weight: normal;
   margin: 0;
   justify-self: start;
   align-self: start;
@@ -351,7 +352,7 @@ h5 {
   color: black;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 70px;
-  font-weight: bold;
+  font-weight: normal;
   margin: 44px auto auto;
 }
 
