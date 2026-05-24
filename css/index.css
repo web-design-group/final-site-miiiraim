@@ -81,7 +81,6 @@ body {
   align-items: center;
 }
 
-/* Исправленное лого */
 .logo {
   display: inline-block;
   position: relative;
@@ -98,7 +97,6 @@ body {
   content: url("../img/all/logohover.png");
 }
 
-/* Активация лого */
 .logo:active .logo-img {
   content: url("../img/all/logopress.png");
 }
@@ -165,7 +163,7 @@ h1 {
   color: white;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 205px;
-  font-weight: bold;
+  font-weight: normal;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0;
 }
@@ -254,7 +252,7 @@ h2 {
   color: black;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 70px;
-  font-weight: bold;
+  font-weight: normal;
   margin: 0;
 }
 
@@ -477,7 +475,6 @@ h4 {
   margin: 0;
 }
 
-/* Стили для слайдера */
 .image-slider {
   width: 575px;
   height: 920px;
@@ -530,7 +527,7 @@ h4 {
   z-index: 1;
 }
 
-/* Стили для блока фактов */
+
 .facts-wrapper {
   position: relative;
   width: 700px;
@@ -598,7 +595,7 @@ h4 {
   color: white;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 64px;
-  font-weight: bold;
+  font-weight: normal;
   text-align: center;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   pointer-events: none;
@@ -730,7 +727,7 @@ h4 {
   pointer-events: auto;
 }
 
-/* Стили для круговых ссылок */
+
 .containermore__links {
   display: flex;
   gap: 15px;
@@ -786,7 +783,7 @@ h4 {
   text-align: center;
 }
 
-/* Адаптивность */
+
 @media (max-width: 1400px) {
   .container,
   .containerour,
