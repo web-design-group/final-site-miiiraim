@@ -243,7 +243,7 @@ a {
 h2 {
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 70px;
-  font-weight: 700;
+  font-weight: normal;
   margin-top: 40px;
   margin-bottom: 60px;
   font-weight: bold;
@@ -389,8 +389,8 @@ p {
 h1 {
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 105px;
-  font-weight: bold;
-  font-weight: 700;
+  font-weight: normal;
+  font-weight: 400;
 }
 
 .huge-title {
