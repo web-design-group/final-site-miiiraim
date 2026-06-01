@@ -1,6 +1,6 @@
 (function() {
-    const burger = document.getElementById('burger');
-    const navMenu = document.getElementById('navMenu');
+    var burger = document.getElementById('burger');
+    var navMenu = document.getElementById('navMenu');
     
     if (burger && navMenu) {
         burger.addEventListener('click', function() {
@@ -8,7 +8,7 @@
             navMenu.classList.toggle('active');
         });
         
-        navMenu.querySelectorAll('a').forEach(link => {
+        navMenu.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
                 burger.classList.remove('active');
                 navMenu.classList.remove('active');
@@ -18,27 +18,24 @@
 })();
 
 (function() {
-    const book = document.getElementById('book');
-    const flipLayer = document.getElementById('flipLayer');
-    const flipImage = document.getElementById('flipImage');
-    const page1 = document.getElementById('page1');
-    const page2 = document.getElementById('page2');
-    const page3 = document.getElementById('page3');
+    var book = document.getElementById('book');
+    var flipLayer = document.getElementById('flipLayer');
+    var flipImage = document.getElementById('flipImage');
+    var page1 = document.getElementById('page1');
+    var page2 = document.getElementById('page2');
+    var page3 = document.getElementById('page3');
 
-    // Состояние
-    let currentPage = 1;
-    let isDragging = false;
-    let startX = 0;
-    let currentX = 0;
-    let direction = 0;
-    let activeSequence = [];
-    let totalFrames = 0;
+    var currentPage = 1;
+    var isDragging = false;
+    var startX = 0;
+    var currentX = 0;
+    var direction = 0;
+    var activeSequence = [];
+    var totalFrames = 0;
 
-    // Порог для завершения перелистывания
-    const THRESHOLD = 80;
+    var THRESHOLD = 80;
 
-    // Карты анимаций
-    const sequences = {
+    var sequences = {
         '1to2': {
             frames: [
                 'img/info/anim2.png',
@@ -92,7 +89,7 @@
     };
 
     function getSequenceKey(from, to) {
-        return `${from}to${to}`;
+        return from + 'to' + to;
     }
 
     function showPage(pageNumber) {
@@ -111,7 +108,7 @@
         if (direction === -1) {
             progress = 1 - progress;
         }
-        const frameIndex = Math.min(
+        var frameIndex = Math.min(
             Math.floor(progress * totalFrames),
             totalFrames - 1
         );
@@ -121,8 +118,8 @@
     function updateFlip(progress) {
         if (activeSequence.length === 0) return;
 
-        const clampedProgress = Math.max(0, Math.min(1, progress));
-        const frameSrc = getFrame(clampedProgress);
+        var clampedProgress = Math.max(0, Math.min(1, progress));
+        var frameSrc = getFrame(clampedProgress);
 
         if (flipImage.src.indexOf(frameSrc) === -1) {
             flipImage.src = frameSrc;
@@ -132,12 +129,12 @@
     function startDrag(e) {
         if (isDragging) return;
 
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const bookRect = book.getBoundingClientRect();
-        const relX = clientX - bookRect.left;
-        const edgeWidth = 120;
+        var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        var bookRect = book.getBoundingClientRect();
+        var relX = clientX - bookRect.left;
+        var edgeWidth = 120;
 
-        let seqKey = null;
+        var seqKey = null;
 
         if (relX < edgeWidth && currentPage > 1) {
             direction = -1;
@@ -149,7 +146,7 @@
 
         if (!seqKey || !sequences[seqKey]) return;
 
-        const seq = sequences[seqKey];
+        var seq = sequences[seqKey];
         activeSequence = seq.frames;
         totalFrames = activeSequence.length;
 
@@ -177,13 +174,13 @@
     function moveDrag(e) {
         if (!isDragging) return;
 
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        var clientX = e.touches ? e.touches[0].clientX : e.clientX;
         currentX = clientX;
 
-        const deltaX = currentX - startX;
-        const bookWidth = book.offsetWidth;
+        var deltaX = currentX - startX;
+        var bookWidth = book.offsetWidth;
 
-        let progress = Math.abs(deltaX) / bookWidth;
+        var progress = Math.abs(deltaX) / bookWidth;
         progress = Math.max(0, Math.min(1, progress));
 
         updateFlip(progress);
@@ -192,45 +189,45 @@
     function endDrag(e) {
         if (!isDragging) return;
 
-        const deltaX = currentX - startX;
-        const absDelta = Math.abs(deltaX);
-        const bookWidth = book.offsetWidth;
-        const progress = absDelta / bookWidth;
+        var deltaX = currentX - startX;
+        var absDelta = Math.abs(deltaX);
+        var bookWidth = book.offsetWidth;
+        var progress = absDelta / bookWidth;
 
         isDragging = false;
         book.classList.remove('flipping');
 
         if (progress > THRESHOLD / bookWidth) {
-            const seqKey = direction === 1
+            var seqKey = direction === 1
                 ? getSequenceKey(currentPage, currentPage + 1)
                 : getSequenceKey(currentPage, currentPage - 1);
 
-            const seq = sequences[seqKey];
+            var seq = sequences[seqKey];
             if (seq) {
                 flipImage.src = direction === 1
                     ? activeSequence[activeSequence.length - 1]
                     : activeSequence[0];
 
-                setTimeout(() => {
+                setTimeout(function() {
                     flipLayer.style.display = 'none';
                     showPage(seq.targetPage);
                 }, 50);
             }
         } else {
-            const seqKey = direction === 1
+            var seqKey2 = direction === 1
                 ? getSequenceKey(currentPage, currentPage + 1)
                 : getSequenceKey(currentPage, currentPage - 1);
 
-            const seq = sequences[seqKey];
-            if (seq) {
+            var seq2 = sequences[seqKey2];
+            if (seq2) {
                 flipImage.src = direction === 1
                     ? activeSequence[0]
                     : activeSequence[activeSequence.length - 1];
 
-                setTimeout(() => {
+                setTimeout(function() {
                     flipLayer.style.display = 'none';
-                    if (seq.currentHide) seq.currentHide.style.display = 'flex';
-                    if (seq.targetShow) seq.targetShow.style.display = 'none';
+                    if (seq2.currentHide) seq2.currentHide.style.display = 'flex';
+                    if (seq2.targetShow) seq2.targetShow.style.display = 'none';
                     showPage(currentPage);
                 }, 50);
             }
@@ -241,19 +238,15 @@
         direction = 0;
     }
 
-    // События мыши
     book.addEventListener('mousedown', startDrag);
     window.addEventListener('mousemove', moveDrag);
     window.addEventListener('mouseup', endDrag);
 
-    // События касания
     book.addEventListener('touchstart', startDrag, { passive: false });
     window.addEventListener('touchmove', moveDrag, { passive: false });
     window.addEventListener('touchend', endDrag);
 
-    // Запрет встроенного перетаскивания
-    book.addEventListener('dragstart', (e) => e.preventDefault());
+    book.addEventListener('dragstart', function(e) { e.preventDefault(); });
 
-    // Старт: показываем первую страницу
     showPage(1);
 })();
