@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
-  margin: 0px;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 @font-face {
@@ -42,6 +43,10 @@ html, body {
   --shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "CaviarDreams", sans-serif;
@@ -50,38 +55,64 @@ body {
   line-height: 1.2;
 }
 
-.container {
-  margin: 0 auto;
-  width: min(1360px, 100%);
-}
-
 .header {
   background-color: #EBEBEB;
-  width: 100%;  
-  height: 120px;
+  width: 100%;
 }
 
 .nav {
-  width: 100%;
-  max-width: 1360px;
+  width: 1360px;
+  max-width: 100%;
   height: 120px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 100;
+  gap: 5px;
+}
+
+.burger span {
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
 }
 
 .logo {
   display: inline-block;
-  position: relative;
   line-height: 0;
   text-decoration: none;
+  z-index: 101;
+  flex-shrink: 0;
 }
 
 .logo .logo-img {
   display: block;
   transition: opacity 0.3s ease;
+  height: 80px;
+  width: auto;
 }
 
 .logo:hover .logo-img {
@@ -93,21 +124,21 @@ body {
 }
 
 .cont-header {
-  width: 1015px;  
-  height: auto;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 60px;
+  flex-shrink: 0;
 }
 
 .cont-header a {
   text-decoration: none;
-  color: black; 
+  color: black;
   font-family: "CaviarDreams", sans-serif;
   font-size: 24px;
   font-weight: normal;
+  white-space: nowrap;
 }
 
 .cont-header a:hover {
@@ -128,46 +159,32 @@ body {
   background-repeat: no-repeat;
   width: 100%;
   height: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
   color: white;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 105px;
-  font-weight: normal;
+  font-weight: bold;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0;
-  text-align: cener;
-}
-
-.center {
-  width: auto;
-  height: 750px;
-  display: grid;
-  grid-template-columns: auto 530px auto;
-  grid-template-rows: 290px 115px auto;
-  grid-template-areas:
-  ". . ."
-  ". about ."
-  ". . .";
-}
-
-.item1 {
-  grid-area: about;
+  text-align: center;
 }
 
 h2 {
   color: black;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 105px;
-  font-weight: normal;
+  font-weight: bold;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0;
+  text-align: center;
 }
 
 p {
-  width: 670px;
-  height: auto;
   color: black;
   font-family: "CaviarDreams", sans-serif;
   font-size: 24px;
@@ -177,327 +194,141 @@ p {
 }
 
 .history {
-  height: 970px;
-  width: min(1360px, 100%);
+  width: 1360px;
+  max-width: 100%;
   margin: 160px auto;
+  padding: 0 20px;
   background-image: url("../img/info/oldpick.png");
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: top center;
 }
 
 .historytype {
   width: 100%;
   max-width: 1360px;
-  height: 970px;
+  min-height: 970px;
   display: grid;
-  grid-template-columns: 669px 669px;
-  grid-template-rows: auto 105px 175px;
+  grid-template-columns: 1fr 1fr;
   gap: 80px 21px;
-  grid-template-areas:
-  ". ."
-  "hsitory history"
-  "type1 type2";
+  margin: 0 auto;
+  padding: 620px 20px 0;
 }
 
-.item2 {
-  grid-area: history;
-  justify-self: center;
+.historytype h2 {
   grid-column: span 2;
+  text-align: center;
+  margin: 0;
 }
 
-.item3 {
-  grid-area: type1;
-}
-
-.item4 {
-  grid-area: type2;
+.historytype p {
+  width: 100%;
+  max-width: 670px;
 }
 
 .events {
-  width: min(1360px, 100%);
-  height: 670px;
+  width: 1360px;
+  max-width: 100%;
   margin: 0 auto 80px;
+  padding: 0 20px;
 }
 
 .eventsgrid {
   display: grid;
-  grid-template-columns: 600px auto;
-  grid-template-rows: 81px 164px 164px 164px;
+  grid-template-columns: 600px 1fr;
   gap: 36px 90px;
-}
-
-h3 {
-  color: black;
-  font-family: "NAURYZREDKEDS", sans-serif;
-  font-size: 70px;
-  font-weight: normal;
-  margin: 0;
 }
 
 .eventsgrid h3 {
   color: black;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 70px;
-  font-weight: normal;
+  font-weight: bold;
   margin: 0;
-  justify-self: start;
-  align-self: start;
 }
 
 h5 {
-  color: black; 
+  color: black;
   font-family: "CaviarDreams_Bold", sans-serif;
   font-size: 42px;
   font-weight: bold;
   margin: 0;
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.flex p {
+  width: 100%;
+  font-size: 24px;
+}
+
 .cultura {
   width: 100%;
-  height: 1238px;
-  padding: 1px 1px;
+  padding: 240px 0 80px;
   background-image: url("../img/all/waveback.png");
-  background-repeat: repeat-x; 
+  background-repeat: repeat-x;
   background-position: top left;
   background-size: auto;
 }
 
-.flex p {
-  width: auto;
-  height: auto;
-  color: black;
-  font-family: "CaviarDreams", sans-serif;
-  font-size: 24px;
-  font-weight: normal;
-  text-align: justify;
-  margin: 0;
-}
-
 .culturalgrid {
-  height: 930px;
-  width: min(1360px, 100%);
-  margin: 240px auto 80px;
+  width: 1360px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
   display: grid;
   grid-template-columns: 440px 440px 440px;
-  grid-template-rows: auto 80px 225px;
+  justify-content: center;
   gap: 42px 20px;
-  grid-template-areas:
-  "zhukov bunin hren"
-  "cultura cultura cultura"
-  "type3 type4 type5";
+}
+
+.culturalgrid h3 {
+  grid-column: span 3;
+  text-align: center;
+  color: black;
+  font-family: "NAURYZREDKEDS", sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  margin: 0;
 }
 
 .culturalgrid p {
-  width: 440px;
-  height: auto;
-  color: black;
-  font-family: "CaviarDreams", sans-serif;
+  width: 100%;
+  max-width: 440px;
   font-size: 24px;
-  font-weight: normal;
-  text-align: justify;
-  margin: 0;
-}
-
-.item6 {
-  grid-area: zhukov; 
-  justify-self: center;
-  align-self: end;
-}
-
-.item7 {
-  grid-area: bunin; 
-  justify-self: center;
-}
-
-.item8 {
-  grid-area: hren;
-  justify-self: center; 
-  align-self: end; 
-}
-
-.item9 {
-  grid-area: cultura; 
-  justify-self: center;
 }
 
 .tradition {
   width: 100%;
-  height: 1993px;
-  padding: 1px 1px;
+  padding: 240px 0 160px;
   background-image: url("../img/all/wave.png");
-  background-repeat: repeat-x; 
+  background-repeat: repeat-x;
   background-position: top left;
   background-size: auto;
 }
 
 .kruzheva {
-  width: min(1360px, 100%);
-  height: 1590px;
-  margin: 240px auto 160px;
-  display: grid;
-  grid-template-rows: 640px 125px 160px 160px 160px 160px;
-  row-gap: 36px;
-}
-
-.flex {
-  height: 160px;
-  width: 100%;
+  width: 1360px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: left;
+  gap: 36px;
 }
 
 .kruzheva h3 {
   color: black;
   font-family: "NAURYZREDKEDS", sans-serif;
   font-size: 70px;
-  font-weight: normal;
-  margin: 44px auto auto;
-}
-
-.footer {
-  width: 100%;
-  height: 340px;
-  background-color: #287E7C;
-  margin: 0;
-  position: absolute;
-  top: 6140px;
-  left: 50%; 
-  transform: translate(-50%);
-}
-
-.f-container {
-  width: min(1360px, 90%);
-  height: auto;
-  margin: 85px auto 115px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-footer {
-  width: 100%;
-  max-width: 1245px;
-  height: 90px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-bottom: 1px solid white;
-}
-
-.contacts {
-  width: 100%;
-  max-width: 900px;
-  height: 40px;
-  padding: 20px 115px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.phone {
-  width: 270px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.mail {
-  width: 230px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.mp {
-  width: 680px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.social {
-  width: 95px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.all {
-  width: 100%;
-  max-width: 1245px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.a-footer {
-  width: 100%;
-  max-width: 1240px;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 13px;
-}
-
-.a-footer a {
-  color: white; 
-  font-family: "CaviarDreams", sans-serif;
-  font-size: 24px;
-  font-weight: normal;
-  text-decoration: none;
-}
-
-.a-footer a:hover {
-  color: white; 
-  font-family: "CaviarDreams", sans-serif;
-  font-size: 24px;
-  font-weight: normal;
-  text-decoration: underline;
-  text-decoration-color: white;
-}
-
-.a-footer a:active {
-  color: white; 
-  font-family: "CaviarDreams", sans-serif;
-  font-size: 24px;
   font-weight: bold;
-  text-decoration: underline;
-  text-decoration-color: white;
-}
-
-h4 {
-  color: white; 
-  font-family: "CaviarDreams_Bold", sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.p-footer {
-  color: white;
-  width: auto;
-  height: auto;
-  font-family: "CaviarDreams", sans-serif;
-  font-size: 24px;
-  font-weight: normal;
-  text-align: left;
-  margin: 0;
+  margin: 44px auto;
+  text-align: center;
 }
 
 .slideshow {
@@ -562,8 +393,7 @@ h4 {
   width: 600px;
   height: 600px;
   background: transparent;
-  align-self: center;
-  grid-row: span 4;  
+  grid-row: span 4;
 }
 
 .book {
@@ -635,6 +465,7 @@ h4 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  justify-self: center;
 }
 
 .culturalgrid .img-wrapper img {
@@ -674,9 +505,10 @@ h4 {
   align-items: center;
 }
 
-.culturalgrid .item7 {
+.culturalgrid .img-wrapper--bunin img {
   width: 500px;
   height: 500px;
+  max-width: none;
 }
 
 .culturalgrid .img-wrapper--bunin .overlay {
@@ -696,9 +528,10 @@ h4 {
   align-items: flex-end;
 }
 
-.culturalgrid .item6 {
+.culturalgrid .img-wrapper--hren img {
   width: 350px;
   height: 350px;
+  max-width: none;
 }
 
 .culturalgrid .img-wrapper--hren .overlay {
@@ -718,9 +551,10 @@ h4 {
   align-items: flex-end;
 }
 
-.culturalgrid .item8 {
+.culturalgrid .img-wrapper--zhukov img {
   width: 350px;
   height: 350px;
+  max-width: none;
 }
 
 .culturalgrid .img-wrapper--zhukov .overlay {
@@ -736,83 +570,419 @@ h4 {
   font-size: 36px;
 }
 
+.footer {
+  width: 100%;
+  background-color: #287E7C;
+  padding: 85px 0;
+}
+
+.f-container {
+  width: 1360px;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.f-container > img {
+  flex-shrink: 0;
+}
+
+.all {
+  width: 100%;
+  max-width: 1245px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-bottom: 1px solid white;
+  padding-bottom: 15px;
+}
+
+.a-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.a-footer a {
+  color: white;
+  font-family: "CaviarDreams", sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.a-footer a:hover {
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+.a-footer a:active {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+
+h4 {
+  color: white;
+  font-family: "CaviarDreams_Bold", sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.contacts {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.mp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.phone, .mail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.p-footer {
+  color: white;
+  font-family: "CaviarDreams", sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+  white-space: nowrap;
+}
+
 @media (max-width: 1400px) {
-  .container,
-  .history,
-  .events,
-  .culturalgrid,
-  .kruzheva {
-    width: 95%;
-  }
-  
-  .nav {
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-  
   .cont-header {
-    width: auto;
-    gap: 20px;
+    gap: 40px;
+  }
+  
+  .cont-header a {
+    font-size: 20px;
   }
   
   .historytype {
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
+    gap: 40px 20px;
   }
   
   .culturalgrid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 15px;
   }
   
   .culturalgrid p {
-    width: 100%;
+    max-width: 100%;
+  }
+  
+  .book-container {
+    width: 500px;
+    height: 500px;
   }
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 60px;
-  }
-  
-  h2 {
-    font-size: 50px;
-  }
-  
-  h3 {
-    font-size: 40px;
+@media (max-width: 1100px) {
+  .history {
+    margin: 100px auto;
   }
   
   .historytype {
     grid-template-columns: 1fr;
-    grid-template-areas:
-    "history"
-    "type1"
-    "type2";
-    gap: 20px;
+    gap: 30px;
+    min-height: auto;
+    padding: 300px 20px 0;
   }
   
-  .item2 {
+  .historytype h2 {
     grid-column: span 1;
+    margin: 0;
   }
   
-  p {
-    width: 100%;
+  .historytype p {
+    max-width: 100%;
   }
   
-  .culturalgrid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-    "bunin"
-    "hren"
-    "zhukov"
-    "cultura"
-    "type3"
-    "type4"
-    "type5";
+  .events {
+    margin: 0 auto 60px;
   }
   
   .eventsgrid {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .book-container {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    grid-row: span 1;
+  }
+  
+  .culturalgrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    justify-items: center;
+  }
+  
+  .culturalgrid h3 {
+    grid-column: span 1;
+  }
+  
+  .culturalgrid .img-wrapper--bunin img {
+    width: 350px;
+    height: 350px;
+    max-width: none;
+  }
+  
+  .culturalgrid .img-wrapper--bunin .overlay {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .culturalgrid .img-wrapper--bunin .overlay__title {
+    font-size: 48px;
+  }
+  
+  .slideshow {
+    height: 400px;
+  }
+  
+  .f-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .a-footer {
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .contacts {
+    flex-direction: column;
+  }
+  
+  .mp {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .burger {
+    display: flex;
+  }
+  
+  .cont-header {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background-color: #EBEBEB;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right 0.3s ease;
+    z-index: 99;
+    padding: 100px 20px;
+  }
+  
+  .cont-header.active {
+    right: 0;
+  }
+  
+  .cont-header a {
+    font-size: 22px;
+  }
+  
+  .hero {
+    height: 500px;
+  }
+  
+  h1 {
+    font-size: 70px;
+  }
+  
+  h2 {
+    font-size: 60px;
+  }
+  
+  h3, .eventsgrid h3, .kruzheva h3, .culturalgrid h3 {
+    font-size: 45px;
+  }
+  
+  h5 {
+    font-size: 30px;
+  }
+  
+  p, .flex p, .culturalgrid p {
+    font-size: 18px;
+  }
+  
+  .history {
+    margin: 80px auto;
+  }
+  
+  .historytype {
+    padding: 200px 20px 0;
+  }
+  
+  .cultura {
+    padding: 120px 0 60px;
+  }
+  
+  .tradition {
+    padding: 120px 0 80px;
+  }
+  
+  .book-container {
+    height: 400px;
+  }
+  
+  .slideshow {
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    height: 80px;
+  }
+  
+  .logo .logo-img {
+    height: 50px;
+  }
+  
+  .hero {
+    height: 350px;
+  }
+  
+  h1 {
+    font-size: 45px;
+  }
+  
+  h2 {
+    font-size: 36px;
+  }
+  
+  h3, .eventsgrid h3, .kruzheva h3, .culturalgrid h3 {
+    font-size: 32px;
+  }
+  
+  h5 {
+    font-size: 24px;
+  }
+  
+  p, .flex p, .culturalgrid p {
+    font-size: 16px;
+  }
+  
+  .history {
+    margin: 60px auto;
+  }
+  
+  .historytype {
+    padding: 120px 20px 0;
+    gap: 20px;
+  }
+  
+  .historytype h2 {
+    margin: 0;
+  }
+  
+  .cultura {
+    padding: 80px 0 40px;
+  }
+  
+  .tradition {
+    padding: 80px 0 60px;
+  }
+  
+  .culturalgrid .img-wrapper--bunin img {
+    width: 250px;
+    height: 250px;
+    max-width: none;
+  }
+  
+  .culturalgrid .img-wrapper--bunin .overlay {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .culturalgrid .img-wrapper--bunin .overlay__title {
+    font-size: 32px;
+  }
+  
+  .culturalgrid .img-wrapper--hren img,
+  .culturalgrid .img-wrapper--zhukov img {
+    width: 200px;
+    height: 200px;
+    max-width: none;
+  }
+  
+  .culturalgrid .img-wrapper--hren .overlay,
+  .culturalgrid .img-wrapper--zhukov .overlay {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .culturalgrid .img-wrapper--hren .overlay__title,
+  .culturalgrid .img-wrapper--zhukov .overlay__title {
+    font-size: 22px;
+  }
+  
+  .book-container {
+    height: 300px;
+  }
+  
+  .slideshow {
+    height: 200px;
+  }
+  
+  .a-footer a {
+    font-size: 16px;
+  }
+  
+  .p-footer {
+    font-size: 16px;
+  }
+  
+  h4 {
+    font-size: 22px;
   }
 }
