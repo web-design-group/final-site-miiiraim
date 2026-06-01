@@ -1,6 +1,21 @@
-// ===========================
-// kr.js — Логика перелистывания
-// ===========================
+(function() {
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (burger && navMenu) {
+        burger.addEventListener('click', function() {
+            burger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                burger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+})();
 
 (function() {
     const book = document.getElementById('book');
