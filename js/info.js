@@ -1,41 +1,29 @@
-(function() {
-    var burger = document.getElementById('burger');
-    var navMenu = document.getElementById('navMenu');
-    
-    if (burger && navMenu) {
-        burger.addEventListener('click', function() {
-            burger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        navMenu.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                burger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
-})();
+// ===========================
+// kr.js — Логика перелистывания
+// ===========================
 
 (function() {
-    var book = document.getElementById('book');
-    var flipLayer = document.getElementById('flipLayer');
-    var flipImage = document.getElementById('flipImage');
-    var page1 = document.getElementById('page1');
-    var page2 = document.getElementById('page2');
-    var page3 = document.getElementById('page3');
+    const book = document.getElementById('book');
+    const flipLayer = document.getElementById('flipLayer');
+    const flipImage = document.getElementById('flipImage');
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+    const page3 = document.getElementById('page3');
 
-    var currentPage = 1;
-    var isDragging = false;
-    var startX = 0;
-    var currentX = 0;
-    var direction = 0;
-    var activeSequence = [];
-    var totalFrames = 0;
+    // Состояние
+    let currentPage = 1;
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+    let direction = 0;
+    let activeSequence = [];
+    let totalFrames = 0;
 
-    var THRESHOLD = 80;
+    // Порог для завершения перелистывания
+    const THRESHOLD = 80;
 
-    var sequences = {
+    // Карты анимаций
+    const sequences = {
         '1to2': {
             frames: [
                 'img/info/anim2.png',
@@ -89,7 +77,7 @@
     };
 
     function getSequenceKey(from, to) {
-        return from + 'to' + to;
+        return `${from}to${to}`;
     }
 
     function showPage(pageNumber) {
@@ -108,7 +96,7 @@
         if (direction === -1) {
             progress = 1 - progress;
         }
-        var frameIndex = Math.min(
+        const frameIndex = Math.min(
             Math.floor(progress * totalFrames),
             totalFrames - 1
         );
@@ -118,8 +106,8 @@
     function updateFlip(progress) {
         if (activeSequence.length === 0) return;
 
-        var clampedProgress = Math.max(0, Math.min(1, progress));
-        var frameSrc = getFrame(clampedProgress);
+        const clampedProgress = Math.max(0, Math.min(1, progress));
+        const frameSrc = getFrame(clampedProgress);
 
         if (flipImage.src.indexOf(frameSrc) === -1) {
             flipImage.src = frameSrc;
@@ -129,12 +117,12 @@
     function startDrag(e) {
         if (isDragging) return;
 
-        var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        var bookRect = book.getBoundingClientRect();
-        var relX = clientX - bookRect.left;
-        var edgeWidth = 120;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const bookRect = book.getBoundingClientRect();
+        const relX = clientX - bookRect.left;
+        const edgeWidth = 120;
 
-        var seqKey = null;
+        let seqKey = null;
 
         if (relX < edgeWidth && currentPage > 1) {
             direction = -1;
@@ -146,107 +134,8 @@
 
         if (!seqKey || !sequences[seqKey]) return;
 
-        var seq = sequences[seqKey];
+        const seq = sequences[seqKey];
         activeSequence = seq.frames;
         totalFrames = activeSequence.length;
 
-        flipLayer.style.display = 'flex';
-
-        if (direction === 1) {
-            flipImage.src = activeSequence[0];
-        } else {
-            flipImage.src = activeSequence[activeSequence.length - 1];
-        }
-
-        if (seq.currentHide) {
-            seq.currentHide.style.display = 'none';
-        }
-        if (seq.targetShow) {
-            seq.targetShow.style.display = 'flex';
-        }
-
-        isDragging = true;
-        startX = clientX;
-        currentX = clientX;
-        book.classList.add('flipping');
-    }
-
-    function moveDrag(e) {
-        if (!isDragging) return;
-
-        var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        currentX = clientX;
-
-        var deltaX = currentX - startX;
-        var bookWidth = book.offsetWidth;
-
-        var progress = Math.abs(deltaX) / bookWidth;
-        progress = Math.max(0, Math.min(1, progress));
-
-        updateFlip(progress);
-    }
-
-    function endDrag(e) {
-        if (!isDragging) return;
-
-        var deltaX = currentX - startX;
-        var absDelta = Math.abs(deltaX);
-        var bookWidth = book.offsetWidth;
-        var progress = absDelta / bookWidth;
-
-        isDragging = false;
-        book.classList.remove('flipping');
-
-        if (progress > THRESHOLD / bookWidth) {
-            var seqKey = direction === 1
-                ? getSequenceKey(currentPage, currentPage + 1)
-                : getSequenceKey(currentPage, currentPage - 1);
-
-            var seq = sequences[seqKey];
-            if (seq) {
-                flipImage.src = direction === 1
-                    ? activeSequence[activeSequence.length - 1]
-                    : activeSequence[0];
-
-                setTimeout(function() {
-                    flipLayer.style.display = 'none';
-                    showPage(seq.targetPage);
-                }, 50);
-            }
-        } else {
-            var seqKey2 = direction === 1
-                ? getSequenceKey(currentPage, currentPage + 1)
-                : getSequenceKey(currentPage, currentPage - 1);
-
-            var seq2 = sequences[seqKey2];
-            if (seq2) {
-                flipImage.src = direction === 1
-                    ? activeSequence[0]
-                    : activeSequence[activeSequence.length - 1];
-
-                setTimeout(function() {
-                    flipLayer.style.display = 'none';
-                    if (seq2.currentHide) seq2.currentHide.style.display = 'flex';
-                    if (seq2.targetShow) seq2.targetShow.style.display = 'none';
-                    showPage(currentPage);
-                }, 50);
-            }
-        }
-
-        activeSequence = [];
-        totalFrames = 0;
-        direction = 0;
-    }
-
-    book.addEventListener('mousedown', startDrag);
-    window.addEventListener('mousemove', moveDrag);
-    window.addEventListener('mouseup', endDrag);
-
-    book.addEventListener('touchstart', startDrag, { passive: false });
-    window.addEventListener('touchmove', moveDrag, { passive: false });
-    window.addEventListener('touchend', endDrag);
-
-    book.addEventListener('dragstart', function(e) { e.preventDefault(); });
-
-    showPage(1);
-})();
+        flip
