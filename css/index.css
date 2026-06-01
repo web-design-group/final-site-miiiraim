@@ -55,13 +55,6 @@ body {
   line-height: 1.2;
 }
 
-.container {
-  margin: 0 auto;
-  width: 1360px;
-  max-width: 100%;
-  padding: 0 20px;
-}
-
 /* HEADER */
 .header {
   background-color: #EBEBEB;
@@ -69,15 +62,15 @@ body {
 }
 
 .nav {
-  width: 100%;
-  max-width: 1360px;
+  width: 1360px;
+  max-width: 100%;
   height: 120px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 20px;
 }
 
 .burger {
@@ -249,13 +242,14 @@ h1 {
 .aboutushistory {
   background-color: white;
   width: 100%;
+  padding: 160px 0 80px;
 }
 
 .containerour {
   margin: 0 auto;
   width: 1360px;
   max-width: 100%;
-  padding: 160px 20px 80px;
+  padding: 0 20px;
 }
 
 h2 {
@@ -304,10 +298,6 @@ p {
   display: flex;
   flex-direction: column;
   gap: 48px;
-}
-
-.oursite > h2 {
-  margin-bottom: 0;
 }
 
 .aboutall {
@@ -372,21 +362,22 @@ p {
   z-index: 1;
 }
 
-/* WAVE + HISTORY */
+/* WAVE */
 .wave {
   background-image: url("../img/all/waveback.png");
   background-repeat: repeat-x;
-  background-position: left;
+  background-position: top left;
   background-size: contain;
   width: 100%;
   height: 595px;
 }
 
+/* HISTORY AND CULTURE SECTION */
 .container-center {
   width: 1360px;
   max-width: 100%;
   margin: 0 auto;
-  padding: 80px 20px 160px;
+  padding: 240px 20px 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -394,7 +385,7 @@ p {
 
 .container-center > h2 {
   text-align: center;
-  margin-bottom: 60px;
+  margin: 0 0 360px 0;
 }
 
 /* FACTS */
@@ -419,6 +410,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
   transition: width 0.5s ease;
 }
 
@@ -563,13 +555,14 @@ p {
 .more {
   background-color: white;
   width: 100%;
+  padding: 80px 0 160px;
 }
 
 .containerm {
   width: 1360px;
   max-width: 100%;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 0 20px;
 }
 
 .containermore {
@@ -633,7 +626,7 @@ p {
 .footer {
   width: 100%;
   background-color: #287E7C;
-  padding: 40px 0;
+  padding: 85px 0;
 }
 
 .f-container {
@@ -869,8 +862,8 @@ h4 {
     font-size: 18px;
   }
   
-  .containerour {
-    padding: 80px 20px 40px;
+  .aboutushistory {
+    padding: 80px 0 40px;
   }
   
   .image-slider {
@@ -902,11 +895,19 @@ h4 {
   }
   
   .wave {
-    height: 200px;
+    height: 300px;
   }
   
   .container-center {
-    padding: 40px 20px 80px;
+    padding: 120px 20px 80px;
+  }
+  
+  .container-center > h2 {
+    margin: 0 0 200px 0;
+  }
+  
+  .more {
+    padding: 40px 0 80px;
   }
   
   .facts-circle {
@@ -946,10 +947,6 @@ h4 {
     max-width: 100%;
     padding-left: 0;
     padding-top: 30px;
-  }
-  
-  .containerm {
-    padding: 40px 20px;
   }
   
   .containermore__links {
@@ -1016,8 +1013,8 @@ h4 {
     font-size: 16px;
   }
   
-  .containerour {
-    padding: 60px 15px 30px;
+  .aboutushistory {
+    padding: 60px 0 30px;
   }
   
   .image-slider {
@@ -1043,6 +1040,22 @@ h4 {
   .image-slider__img--bottom {
     width: 230px;
     height: 230px;
+  }
+  
+  .wave {
+    height: 200px;
+  }
+  
+  .container-center {
+    padding: 80px 15px 60px;
+  }
+  
+  .container-center > h2 {
+    margin: 0 0 120px 0;
+  }
+  
+  .more {
+    padding: 30px 0 60px;
   }
   
   .facts-circle {
