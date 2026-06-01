@@ -138,4 +138,107 @@
         activeSequence = seq.frames;
         totalFrames = activeSequence.length;
 
-        flip
+        flipLayer.style.display = 'flex';
+
+        if (direction === 1) {
+            flipImage.src = activeSequence[0];
+        } else {
+            flipImage.src = activeSequence[activeSequence.length - 1];
+        }
+
+        if (seq.currentHide) {
+            seq.currentHide.style.display = 'none';
+        }
+        if (seq.targetShow) {
+            seq.targetShow.style.display = 'flex';
+        }
+
+        isDragging = true;
+        startX = clientX;
+        currentX = clientX;
+        book.classList.add('flipping');
+    }
+
+    function moveDrag(e) {
+        if (!isDragging) return;
+
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        currentX = clientX;
+
+        const deltaX = currentX - startX;
+        const bookWidth = book.offsetWidth;
+
+        let progress = Math.abs(deltaX) / bookWidth;
+        progress = Math.max(0, Math.min(1, progress));
+
+        updateFlip(progress);
+    }
+
+    function endDrag(e) {
+        if (!isDragging) return;
+
+        const deltaX = currentX - startX;
+        const absDelta = Math.abs(deltaX);
+        const bookWidth = book.offsetWidth;
+        const progress = absDelta / bookWidth;
+
+        isDragging = false;
+        book.classList.remove('flipping');
+
+        if (progress > THRESHOLD / bookWidth) {
+            const seqKey = direction === 1
+                ? getSequenceKey(currentPage, currentPage + 1)
+                : getSequenceKey(currentPage, currentPage - 1);
+
+            const seq = sequences[seqKey];
+            if (seq) {
+                flipImage.src = direction === 1
+                    ? activeSequence[activeSequence.length - 1]
+                    : activeSequence[0];
+
+                setTimeout(() => {
+                    flipLayer.style.display = 'none';
+                    showPage(seq.targetPage);
+                }, 50);
+            }
+        } else {
+            const seqKey = direction === 1
+                ? getSequenceKey(currentPage, currentPage + 1)
+                : getSequenceKey(currentPage, currentPage - 1);
+
+            const seq = sequences[seqKey];
+            if (seq) {
+                flipImage.src = direction === 1
+                    ? activeSequence[0]
+                    : activeSequence[activeSequence.length - 1];
+
+                setTimeout(() => {
+                    flipLayer.style.display = 'none';
+                    if (seq.currentHide) seq.currentHide.style.display = 'flex';
+                    if (seq.targetShow) seq.targetShow.style.display = 'none';
+                    showPage(currentPage);
+                }, 50);
+            }
+        }
+
+        activeSequence = [];
+        totalFrames = 0;
+        direction = 0;
+    }
+
+    // События мыши
+    book.addEventListener('mousedown', startDrag);
+    window.addEventListener('mousemove', moveDrag);
+    window.addEventListener('mouseup', endDrag);
+
+    // События касания
+    book.addEventListener('touchstart', startDrag, { passive: false });
+    window.addEventListener('touchmove', moveDrag, { passive: false });
+    window.addEventListener('touchend', endDrag);
+
+    // Запрет встроенного перетаскивания
+    book.addEventListener('dragstart', (e) => e.preventDefault());
+
+    // Старт: показываем первую страницу
+    showPage(1);
+})();
