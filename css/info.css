@@ -717,13 +717,14 @@ h4 {
 @media (max-width: 1100px) {
   .history {
     margin: 100px auto;
+    padding: 0 20px;
   }
   
   .historytype {
     grid-template-columns: 1fr;
     gap: 30px;
     min-height: auto;
-    padding: 300px 20px 0;
+    padding: 300px 0 0;
   }
   
   .historytype h2 {
@@ -737,6 +738,7 @@ h4 {
   
   .events {
     margin: 0 auto 60px;
+    padding: 0 20px;
   }
   
   .eventsgrid {
@@ -752,10 +754,15 @@ h4 {
     grid-row: span 1;
   }
   
+  .cultura {
+    padding: 120px 0 60px;
+  }
+  
   .culturalgrid {
     grid-template-columns: 1fr;
     gap: 30px;
     justify-items: center;
+    padding: 0 20px;
   }
   
   .culturalgrid h3 {
@@ -777,8 +784,22 @@ h4 {
     font-size: 48px;
   }
   
+  .tradition {
+    padding: 120px 0 80px;
+  }
+  
+  .kruzheva {
+    padding: 0 20px;
+    gap: 42px;
+  }
+  
+  .kruzheva h3 {
+    margin: 80px auto 0;
+  }
+  
   .slideshow {
     height: 400px;
+    max-width: 100%;
   }
   
   .f-container {
@@ -856,18 +877,32 @@ h4 {
   
   .history {
     margin: 80px auto;
+    padding: 0 20px;
   }
   
   .historytype {
-    padding: 200px 20px 0;
+    padding: 200px 0 0;
   }
   
   .cultura {
-    padding: 120px 0 60px;
+    padding: 100px 0 50px;
+  }
+  
+  .culturalgrid {
+    padding: 0 20px;
   }
   
   .tradition {
-    padding: 120px 0 80px;
+    padding: 100px 0 60px;
+  }
+  
+  .kruzheva {
+    padding: 0 20px;
+    gap: 36px;
+  }
+  
+  .kruzheva h3 {
+    margin: 60px auto 0;
   }
   
   .book-container {
@@ -876,6 +911,38 @@ h4 {
   
   .slideshow {
     height: 300px;
+    max-width: 100%;
+  }
+  
+  .culturalgrid .img-wrapper--bunin img {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .culturalgrid .img-wrapper--bunin .overlay {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .culturalgrid .img-wrapper--bunin .overlay__title {
+    font-size: 36px;
+  }
+  
+  .culturalgrid .img-wrapper--hren img,
+  .culturalgrid .img-wrapper--zhukov img {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .culturalgrid .img-wrapper--hren .overlay,
+  .culturalgrid .img-wrapper--zhukov .overlay {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .culturalgrid .img-wrapper--hren .overlay__title,
+  .culturalgrid .img-wrapper--zhukov .overlay__title {
+    font-size: 24px;
   }
 }
 
@@ -914,10 +981,11 @@ h4 {
   
   .history {
     margin: 60px auto;
+    padding: 0 20px;
   }
   
   .historytype {
-    padding: 120px 20px 0;
+    padding: 120px 0 0;
     gap: 20px;
   }
   
@@ -925,45 +993,64 @@ h4 {
     margin: 0;
   }
   
+  .events {
+    margin: 0 auto 40px;
+    padding: 0 20px;
+  }
+  
   .cultura {
     padding: 80px 0 40px;
   }
   
+  .culturalgrid {
+    padding: 0 20px;
+    gap: 20px;
+  }
+  
   .tradition {
-    padding: 80px 0 60px;
+    padding: 80px 0 40px;
+  }
+  
+  .kruzheva {
+    padding: 0 20px;
+    gap: 30px;
+  }
+  
+  .kruzheva h3 {
+    margin: 40px auto 0;
   }
   
   .culturalgrid .img-wrapper--bunin img {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     max-width: none;
   }
   
   .culturalgrid .img-wrapper--bunin .overlay {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
   }
   
   .culturalgrid .img-wrapper--bunin .overlay__title {
-    font-size: 32px;
+    font-size: 26px;
   }
   
   .culturalgrid .img-wrapper--hren img,
   .culturalgrid .img-wrapper--zhukov img {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     max-width: none;
   }
   
   .culturalgrid .img-wrapper--hren .overlay,
   .culturalgrid .img-wrapper--zhukov .overlay {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
   }
   
   .culturalgrid .img-wrapper--hren .overlay__title,
   .culturalgrid .img-wrapper--zhukov .overlay__title {
-    font-size: 22px;
+    font-size: 18px;
   }
   
   .book-container {
@@ -972,6 +1059,7 @@ h4 {
   
   .slideshow {
     height: 200px;
+    max-width: 100%;
   }
   
   .a-footer a {
