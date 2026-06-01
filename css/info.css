@@ -356,11 +356,11 @@ h5 {
 }
 
 @keyframes fade1 {
-  0%     { opacity: 1; }
+  0% { opacity: 1; }
   16.67% { opacity: 1; }
   33.33% { opacity: 0; }
   83.33% { opacity: 0; }
-  100%   { opacity: 1; }
+  100% { opacity: 1; }
 }
 
 .slideshow__image--2 {
@@ -368,12 +368,12 @@ h5 {
 }
 
 @keyframes fade2 {
-  0%     { opacity: 0; }
+  0% { opacity: 0; }
   16.67% { opacity: 0; }
   33.33% { opacity: 1; }
-  50%    { opacity: 1; }
+  50% { opacity: 1; }
   66.67% { opacity: 0; }
-  100%   { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 .slideshow__image--3 {
@@ -381,11 +381,11 @@ h5 {
 }
 
 @keyframes fade3 {
-  0%     { opacity: 0; }
-  50%    { opacity: 0; }
+  0% { opacity: 0; }
+  50% { opacity: 0; }
   66.67% { opacity: 1; }
   83.33% { opacity: 1; }
-  100%   { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 .book-container {
